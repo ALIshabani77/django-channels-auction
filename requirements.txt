@@ -1,0 +1,16 @@
+# requirements.txt
+
+# هسته اصلی جنگو
+django
+djangorestframework
+
+# برای اتصال به دیتابیس PostgreSQL
+psycopg2-binary
+
+# برای اجرای پروژه به صورت ASGI (نیاز Channels)
+gunicorn
+uvicorn
+
+# برای وب‌سوکت و ارتباط لحظه‌ای
+channels
+channels_redis

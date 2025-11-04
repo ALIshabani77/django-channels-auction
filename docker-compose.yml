@@ -1,0 +1,40 @@
+services:
+  
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=auction_db
+      - POSTGRES_USER=auction_user
+      - POSTGRES_PASSWORD=auction_pass
+    ports:
+      - "5432:5432" 
+
+ 
+  redis:
+    image: redis:6-alpine
+
+
+  web:
+    build: . 
+    command: >
+      sh -c "python manage.py migrate &&
+             gunicorn auction_project.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000"
+    volumes:
+      - .:/app  
+    ports:
+      - "8000:8000"
+    environment:
+      
+      - POSTGRES_NAME=auction_db
+      - POSTGRES_USER=auction_user
+      - POSTGRES_PASSWORD=auction_pass
+      - POSTGRES_HOST=db  
+      - REDIS_HOST=redis 
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  postgres_data:

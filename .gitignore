@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+
+# Docker
+.dockerignore
+docker-compose.yml.bak
+
+# Django
+*.log
+db.sqlite3
+*.pot
+*.mo
+
+# VS Code
+.vscode/
+
+# Other
+.DS_Store
