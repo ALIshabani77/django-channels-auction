@@ -14,3 +14,7 @@ uvicorn
 # برای وب‌سوکت و ارتباط لحظه‌ای
 channels
 channels_redis
+
+
+# برای پشتیبانی Uvicorn از WebSocket
+websockets
