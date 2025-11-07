@@ -142,7 +142,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-ASGI_APPLICATION = 'auction_project.asgi.application'
+ASGI_APPLICATION = 'afagh_auction.asgi.application'
 REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
 
 CHANNEL_LAYERS = {
